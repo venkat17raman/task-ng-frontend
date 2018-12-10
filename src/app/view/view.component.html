@@ -1,0 +1,33 @@
+
+<div class="margin">
+    <a routerLink="/logout" class="button"  >Logout</a>
+    <a routerLink="/dashboard" class="button"  >Back</a>
+</div>
+<div class="margin">
+  <table *ngIf="users.length !==0" class="mt-5">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let User of users">
+        <td>{{User.name}}</td>
+        <td>{{User.email}}</td>
+        <td>
+          <button type="button" id="delete" (click)="deleteUser(User)">
+            delete
+          </button></td>
+      </tr>
+    </tbody>
+  </table>
+  <section class="records" *ngIf=" users.length === 0 ">
+    <div fxFlex fxLayout="column">
+      <div fxFlexAlign="center">
+        <h3>No user found</h3>
+      </div>
+    </div>
+  </section>
+</div>
